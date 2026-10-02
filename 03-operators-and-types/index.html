@@ -1,0 +1,59 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>1.3 Operators &amp; Types · JS from Zero</title>
+  <link rel="stylesheet" href="../../shared/task.css">
+</head>
+<body data-level="1" data-task="03-operators-and-types">
+  <header class="task-head">
+    <a class="back" href="../../index.html">← All tasks</a>
+    <p class="eyebrow">Level 1 · Basics · Task 3</p>
+    <h1>Operators &amp; type surprises</h1>
+  </header>
+
+  <main class="task">
+    <div class="left">
+      <section class="brief">
+        <h2>Goal</h2>
+        <p>Work out a shopping bill, then meet JavaScript's most famous surprise: <code>"5" + 3</code> is <strong>not</strong> 8.</p>
+
+        <h2>You'll use</h2>
+        <ul class="concepts">
+          <li><code>+ - * /</code></li><li><code>%</code> remainder</li><li><code>&gt; &lt; &gt;=</code></li>
+          <li><code>true / false</code></li><li><code>Number()</code></li><li><code>===</code> vs <code>==</code></li>
+        </ul>
+
+        <h2>Steps</h2>
+        <p>The file starts with <code>price = 25</code> and <code>quantity = 3</code>.</p>
+        <ol>
+          <li><code>total</code>: price times quantity.</li>
+          <li><code>withTax</code>: the total plus 15% tax. (15% of x is <code>x * 0.15</code>.)</li>
+          <li><code>isExpensive</code>: is <code>withTax</code> more than 80? This is a <em>boolean</em>, <code>true</code> or <code>false</code>.</li>
+          <li><code>leftover</code>: 17 sweets shared between 5 kids. How many are left over? Use <code>%</code>.</li>
+          <li><code>wrongSum</code>: <code>fromInput + 3</code>. Log it and look closely.</li>
+          <li><code>rightSum</code>: turn <code>fromInput</code> into a number first with <code>Number()</code>, then add 3.</li>
+          <li><code>looseEqual</code> = <code>fromInput == 5</code> and <code>strictEqual</code> = <code>fromInput === 5</code>. Log both.</li>
+        </ol>
+
+        <div class="tip"><p><strong>Why this matters:</strong> anything a user types into a form reaches JavaScript as a <em>string</em>, even in a number field. You'll hit this in Level 4.</p></div>
+
+        <h2>Think about it</h2>
+        <ul>
+          <li>When one side of <code>+</code> is a string, JS <em>joins</em> text instead of adding. Does <code>"5" * 3</code> do the same? Try it.</li>
+          <li><code>==</code> converts types before comparing. <code>===</code> doesn't. Which one should you use? (Almost always <code>===</code>.)</li>
+          <li>What does <code>Number("hello")</code> give you?</li>
+        </ul>
+
+        <details>
+          <summary>Bonus</summary>
+          <p>Log <code>0.1 + 0.2</code>. It isn't <code>0.3</code>. Computers store decimals in binary, so some can't be stored exactly. That's why prices are often counted in cents.</p>
+        </details>
+      </section>
+    </div>
+  </main>
+
+  <script src="../../shared/runner.js"></script>
+</body>
+</html>

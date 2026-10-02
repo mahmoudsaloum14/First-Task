@@ -1,0 +1,63 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>1.2 Variables · JS from Zero</title>
+  <link rel="stylesheet" href="../../shared/task.css">
+</head>
+<body data-level="1" data-task="02-variables">
+  <header class="task-head">
+    <a class="back" href="../../index.html">← All tasks</a>
+    <p class="eyebrow">Level 1 · Basics · Task 2</p>
+    <h1>Variables: giving values a name</h1>
+  </header>
+
+  <main class="task">
+    <div class="left">
+      <section class="brief">
+        <h2>Goal</h2>
+        <p>Store values in variables, change them, and join them into a sentence. A variable is a <strong>labelled box</strong>. The label is its name and the value goes inside.</p>
+
+        <h2>You'll use</h2>
+        <ul class="concepts">
+          <li><code>const</code></li><li><code>let</code></li><li><code>=</code> (assign)</li>
+          <li><code>`template ${literals}`</code></li><li><code>age++</code></li>
+        </ul>
+
+        <pre><code>const city = "Riyadh";   // const: this box never gets a new value
+let score = 10;          // let: this box can change
+score = score + 5;       // now 15
+console.log(`I live in ${city} and scored ${score}`);</code></pre>
+
+        <h2>Steps</h2>
+        <ol>
+          <li>Make a <code>const</code> called <code>firstName</code> holding your first name.</li>
+          <li>Make a <code>const</code> called <code>lastName</code>.</li>
+          <li>Make a <code>let</code> called <code>age</code> holding a number.</li>
+          <li>Make <code>fullName</code> using a template literal: first name, a space, last name.</li>
+          <li>It's your birthday! Add 1 to <code>age</code>.</li>
+          <li>Make <code>intro</code>: <code>"Hi, I'm Sara Ali and I'm 21 years old."</code>, built from your variables. Then log it.</li>
+          <li>Uncomment the last line in the file, refresh, and read the error.</li>
+        </ol>
+
+        <div class="tip"><p><strong>Backticks, not quotes.</strong> Template literals use the <code>`</code> key (top-left of most keyboards). <code>${ }</code> only works inside backticks.</p></div>
+
+        <h2>Think about it</h2>
+        <ul>
+          <li>Why is <code>firstName</code> a <code>const</code> but <code>age</code> a <code>let</code>?</li>
+          <li>Names are case-sensitive. Is <code>firstname</code> the same variable as <code>firstName</code>?</li>
+          <li>Use <code>const</code> by default. Switch to <code>let</code> only when the value really needs to change.</li>
+        </ul>
+
+        <details>
+          <summary>Bonus</summary>
+          <p>Make a <code>let</code> called <code>favoriteColor</code>, log it, change it, and log it again. Every <code>console.log</code> shows the value <em>at that moment</em>.</p>
+        </details>
+      </section>
+    </div>
+  </main>
+
+  <script src="../../shared/runner.js"></script>
+</body>
+</html>
