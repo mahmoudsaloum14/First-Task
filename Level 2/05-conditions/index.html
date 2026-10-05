@@ -1,0 +1,62 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>2.2 Conditions · JS from Zero</title>
+  <link rel="stylesheet" href="../../shared/task.css">
+</head>
+<body data-level="2" data-task="05-conditions">
+  <header class="task-head">
+    <a class="back" href="../../index.html">← All tasks</a>
+    <p class="eyebrow">Level 2 · Logic · Task 2</p>
+    <h1>Conditions: making decisions</h1>
+  </header>
+
+  <main class="task">
+    <div class="left">
+      <section class="brief">
+        <h2>Goal</h2>
+        <p>Make your code choose what to do. Each function below takes an input and uses <code>if</code> / <code>else</code> to pick the right answer.</p>
+
+        <h2>You'll use</h2>
+        <ul class="concepts">
+          <li><code>if</code></li><li><code>else if</code></li><li><code>else</code></li>
+          <li><code>&amp;&amp;</code> and</li><li><code>||</code> or</li><li><code>&gt;=</code></li>
+        </ul>
+
+        <pre><code>if (temperature &gt; 30) {
+  return "hot";
+} else if (temperature &gt; 15) {
+  return "nice";
+} else {
+  return "cold";
+}</code></pre>
+
+        <h2>Steps</h2>
+        <ol>
+          <li><code>canVote(age)</code> returns <code>true</code> for 18 and over, otherwise <code>false</code>.</li>
+          <li><code>letterGrade(score)</code>: 90+ → <code>"A"</code>, 80+ → <code>"B"</code>, 70+ → <code>"C"</code>, 60+ → <code>"D"</code>, anything lower → <code>"F"</code>.</li>
+          <li><code>ticketPrice(age)</code>: under 5 → <code>0</code>, under 18 → <code>5</code>, 65 and over → <code>7</code>, everyone else → <code>10</code>.</li>
+          <li><code>canEnter(age, hasTicket)</code>: <code>true</code> only when the person is 12 or older <strong>and</strong> has a ticket.</li>
+        </ol>
+
+        <div class="tip"><p><strong>Order matters.</strong> JavaScript checks conditions top to bottom and stops at the first one that's true. If you check <code>score &gt;= 60</code> first, a score of 95 gets a <code>"D"</code>.</p></div>
+
+        <h2>Think about it</h2>
+        <ul>
+          <li>Is 90 an A or a B? Do you need <code>&gt;</code> or <code>&gt;=</code>? The checks test the edges on purpose.</li>
+          <li>Since <code>age &gt;= 18</code> is already <code>true</code> or <code>false</code>, can you write <code>canVote</code> without an <code>if</code>?</li>
+        </ul>
+
+        <details>
+          <summary>Bonus</summary>
+          <p>Make <code>letterGrade</code> return <code>"Invalid"</code> for scores below 0 or above 100. You'll need <code>||</code>.</p>
+        </details>
+      </section>
+    </div>
+  </main>
+
+  <script src="../../shared/runner.js"></script>
+</body>
+</html>

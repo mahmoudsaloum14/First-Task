@@ -1,0 +1,60 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>2.3 Loops · JS from Zero</title>
+  <link rel="stylesheet" href="../../shared/task.css">
+</head>
+<body data-level="2" data-task="06-loops">
+  <header class="task-head">
+    <a class="back" href="../../index.html">← All tasks</a>
+    <p class="eyebrow">Level 2 · Logic · Task 3</p>
+    <h1>Loops: doing things again and again</h1>
+  </header>
+
+  <main class="task">
+    <div class="left">
+      <section class="brief">
+        <h2>Goal</h2>
+        <p>Let the computer handle the repetition. You'll add up numbers, build a countdown, play FizzBuzz and count letters.</p>
+
+        <h2>You'll use</h2>
+        <ul class="concepts">
+          <li><code>for (let i = 1; i &lt;= n; i++)</code></li><li><code>for (const x of text)</code></li>
+          <li><code>while</code></li><li><code>+=</code></li>
+        </ul>
+
+        <pre><code>for (let i = 1; i &lt;= 3; i++) {
+  console.log(i);   // 1, then 2, then 3
+}
+// start here ↑   keep going while ↑   after each round ↑</code></pre>
+
+        <h2>Steps</h2>
+        <ol>
+          <li><code>sumTo(n)</code> adds 1 + 2 + … + n. <code>sumTo(3)</code> → <code>6</code>.</li>
+          <li><code>countdown(n)</code> returns the text <code>"3 2 1 Liftoff!"</code> for <code>n = 3</code>.</li>
+          <li><code>fizzBuzz(n)</code> returns <code>"FizzBuzz"</code> if n divides by 3 and 5, <code>"Fizz"</code> if by 3, <code>"Buzz"</code> if by 5, otherwise the number as text. Then log 1 to 15 with a loop.</li>
+          <li><code>countVowels(word)</code> counts a, e, i, o, u, capitals included.</li>
+          <li><code>doublingsUntil(limit)</code>: start at 1 and keep doubling. How many doublings until you reach the limit or pass it? Use <code>while</code>.</li>
+        </ol>
+
+        <div class="tip"><p><strong>The accumulator pattern.</strong> Make a variable before the loop (<code>let total = 0</code>), change it inside the loop (<code>total += i</code>), and return it after. Most loops you'll ever write look like this.</p></div>
+
+        <h2>Think about it</h2>
+        <ul>
+          <li>What happens if a <code>while</code> condition never becomes false? (Don't try this with unsaved work open. The tab will freeze.)</li>
+          <li>When would you use <code>for...of</code> instead of a counting <code>for</code> loop?</li>
+        </ul>
+
+        <details>
+          <summary>Bonus</summary>
+          <p>Write <code>multiplicationTable(n)</code> that logs <code>"3 x 1 = 3"</code> up to <code>"3 x 10 = 30"</code>.</p>
+        </details>
+      </section>
+    </div>
+  </main>
+
+  <script src="../../shared/runner.js"></script>
+</body>
+</html>
