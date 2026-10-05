@@ -1,0 +1,110 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>5.1 Todo App · JS from Zero</title>
+  <link rel="stylesheet" href="../../shared/task.css">
+  <style>
+    .todo { max-width: 460px; }
+    .add { display: flex; gap: 8px; }
+    .add input {
+      flex: 1; min-width: 0; font: inherit; padding: 10px 12px; border: 1.5px solid var(--line);
+      border-radius: 8px; background: var(--bg); color: var(--ink);
+    }
+    .add button, .footer button {
+      font: inherit; font-weight: 700; border-radius: 8px; cursor: pointer;
+    }
+    .add button { padding: 10px 16px; border: 0; background: var(--level); color: #fff; }
+    #list { list-style: none; padding: 0; margin: 14px 0; display: grid; gap: 6px; }
+    #list:empty::before { content: "Nothing to do. Add something above!"; color: var(--muted); font-size: 14px; }
+    #list li {
+      display: flex; align-items: center; gap: 10px; padding: 8px 10px;
+      border: 1px solid var(--line); border-radius: 8px; background: var(--bg);
+    }
+    #list li span { flex: 1; overflow-wrap: anywhere; }
+    #list li.done span { text-decoration: line-through; color: var(--muted); }
+    #list input[type="checkbox"] { width: 18px; height: 18px; accent-color: var(--level); }
+    #list .delete {
+      font: inherit; border: 0; background: transparent; color: var(--muted); cursor: pointer;
+      font-size: 18px; line-height: 1; padding: 2px 6px; border-radius: 6px;
+    }
+    #list .delete:hover { color: var(--fail); background: var(--code-bg); }
+    .footer { display: flex; justify-content: space-between; align-items: center; font-size: 14px; color: var(--muted); }
+    .footer button { padding: 5px 10px; border: 1px solid var(--line); background: transparent; color: var(--muted); }
+  </style>
+</head>
+<body data-level="5" data-task="13-todo-app" data-checks="manual">
+  <header class="task-head">
+    <a class="back" href="../../index.html">← All tasks</a>
+    <p class="eyebrow">Level 5 · Mini project</p>
+    <h1>Put it all together: a todo app</h1>
+  </header>
+
+  <main class="task">
+    <div class="left">
+      <section class="stage" aria-label="Your page">
+        <p class="stage-label">Your app</p>
+        <div class="todo">
+          <form class="add" id="add-form">
+            <input id="new-todo" type="text" placeholder="What needs doing?" autocomplete="off" aria-label="New todo">
+            <button type="submit">Add</button>
+          </form>
+          <ul id="list"></ul>
+          <div class="footer">
+            <span id="remaining">0 left</span>
+            <button type="button" id="clear-done">Clear completed</button>
+          </div>
+        </div>
+      </section>
+
+      <section class="brief">
+        <h2>Goal</h2>
+        <p>Build a working todo list. It uses almost everything so far: variables, functions, conditions, loops, arrays of objects, array methods, the DOM, and events.</p>
+
+        <h2>You'll use</h2>
+        <ul class="concepts">
+          <li>an array of objects as state</li><li><code>render()</code></li><li><code>.filter()</code></li>
+          <li><code>.find()</code></li><li>event delegation</li><li><code>.trim()</code></li>
+        </ul>
+
+        <h2>The plan</h2>
+        <p>All the data lives in one array. Every action changes the <strong>array</strong>, then calls <code>render()</code>, which rebuilds the list from scratch. It's the counter from 4.2, with a list in place of a number.</p>
+        <pre><code>let todos = [
+  { id: 1, text: "Buy milk", done: false },
+  { id: 2, text: "Learn JS", done: true },
+];</code></pre>
+
+        <h2>Steps</h2>
+        <ol>
+          <li><code>render()</code>: empty <code>#list</code>, then make an <code>&lt;li&gt;</code> for each todo (the starter builds most of it for you).</li>
+          <li>Give the <code>&lt;li&gt;</code> the class <code>done</code> when the todo is done, and tick its checkbox.</li>
+          <li>Show how many are <em>not</em> done in <code>#remaining</code>, as <code>"2 left"</code>.</li>
+          <li>Adding: on submit, trim the text. If it's empty, do nothing. Otherwise push a new todo, clear the input and render.</li>
+          <li>Toggling and deleting: one <code>click</code> listener on <code>#list</code> works out which todo was clicked and what was clicked on.</li>
+          <li><strong>Clear completed</strong> keeps only the todos that aren't done.</li>
+        </ol>
+
+        <div class="tip"><p><strong>Event delegation.</strong> The <code>&lt;li&gt;</code>s get destroyed and rebuilt on every render, so listeners attached to them would disappear too. Put <em>one</em> listener on <code>#list</code>, which never changes. <code>event.target</code> tells you what was actually clicked.</p></div>
+
+        <h2>Think about it</h2>
+        <ul>
+          <li>Why does every todo need an <code>id</code>? Why not find it by its text?</li>
+          <li>Rebuilding the whole list on every change sounds slow. When would it start to matter? (This is part of why frameworks like React exist.)</li>
+        </ul>
+
+        <details>
+          <summary>Bonus</summary>
+          <ul>
+            <li>Save the todos so they survive a refresh: <code>localStorage.setItem("todos", JSON.stringify(todos))</code> at the end of <code>render()</code>, and <code>JSON.parse(localStorage.getItem("todos"))</code> at the start.</li>
+            <li>Show <code>"1 item left"</code> for one and <code>"2 items left"</code> for more.</li>
+            <li>Double-click a todo to edit its text.</li>
+          </ul>
+        </details>
+      </section>
+    </div>
+  </main>
+
+  <script src="../../shared/runner.js"></script>
+</body>
+</html>
