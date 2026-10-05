@@ -1,0 +1,94 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>4.3 Tip Calculator · JS from Zero</title>
+  <link rel="stylesheet" href="../../shared/task.css">
+  <style>
+    .tip-form { display: grid; gap: 12px; max-width: 420px; }
+    .tip-form label { display: grid; gap: 4px; font-size: 14px; font-weight: 600; }
+    .tip-form input, .tip-form select {
+      font: inherit; font-weight: 400; padding: 9px 12px; border: 1.5px solid var(--line);
+      border-radius: 8px; background: var(--bg); color: var(--ink);
+    }
+    .tip-form .row { display: grid; grid-template-columns: 1fr 1fr; gap: 12px; }
+    .tip-form button {
+      font: inherit; font-weight: 700; padding: 10px; border: 0; border-radius: 8px;
+      background: var(--level); color: #fff; cursor: pointer;
+    }
+    #result { display: block; margin-top: 16px; font-size: 18px; font-weight: 700; min-height: 1.5em; }
+    #error { margin: 6px 0 0; color: var(--fail); font-weight: 600; min-height: 1.5em; }
+  </style>
+</head>
+<body data-level="4" data-task="12-forms-tip-calculator" data-checks="manual">
+  <header class="task-head">
+    <a class="back" href="../../index.html">← All tasks</a>
+    <p class="eyebrow">Level 4 · The page · Task 3</p>
+    <h1>Forms: a tip calculator</h1>
+  </header>
+
+  <main class="task">
+    <div class="left">
+      <section class="stage" aria-label="Your page">
+        <p class="stage-label">Your page: fill it in and press Calculate</p>
+        <form class="tip-form" id="tip-form">
+          <label>Bill amount ($)
+            <input id="bill" type="number" min="0" step="0.01" placeholder="e.g. 100" inputmode="decimal">
+          </label>
+          <div class="row">
+            <label>Tip
+              <select id="tip">
+                <option value="10">10%</option>
+                <option value="15" selected>15%</option>
+                <option value="20">20%</option>
+              </select>
+            </label>
+            <label>People
+              <input id="people" type="number" min="1" step="1" value="1">
+            </label>
+          </div>
+          <button type="submit">Calculate</button>
+        </form>
+        <output id="result" for="bill tip people"></output>
+        <p id="error" role="alert"></p>
+      </section>
+
+      <section class="brief">
+        <h2>Goal</h2>
+        <p>Read what the user typed, work out the tip, and show the answer. This is task 1.3 (strings vs numbers) and 2.2 (conditions) with a real form.</p>
+
+        <h2>You'll use</h2>
+        <ul class="concepts">
+          <li><code>input.value</code></li><li><code>Number()</code></li><li><code>"submit"</code> event</li>
+          <li><code>event.preventDefault()</code></li><li><code>.toFixed(2)</code></li>
+        </ul>
+
+        <h2>Steps</h2>
+        <ol>
+          <li>Listen for the form's <code>submit</code> event and call <code>event.preventDefault()</code>. Without it, the page reloads and your result disappears.</li>
+          <li>Inside <code>calculate()</code>, read the three values and turn them into numbers.</li>
+          <li>If the bill is empty or not above 0, show <code>"Please enter a bill amount."</code> in <code>#error</code>, clear <code>#result</code>, and stop.</li>
+          <li>Work out the tip, the total, and the amount each person pays.</li>
+          <li>Show exactly <code>Tip: $15.00 · Total: $115.00 · Each: $57.50</code> (for a $100 bill, 15%, 2 people), and clear the error.</li>
+        </ol>
+
+        <div class="tip"><p><strong><code>.value</code> is always a string.</strong> Even from <code>type="number"</code>. <code>"100" + 15</code> is <code>"10015"</code>. Wrap it in <code>Number()</code>, just like in task 1.3.</p></div>
+
+        <h2>Think about it</h2>
+        <ul>
+          <li>Why listen for <code>submit</code> on the form instead of <code>click</code> on the button? (Hint: press <kbd>Enter</kbd> in an input.)</li>
+          <li>What does <code>Number("")</code> give? Is that a problem for your check in step 3?</li>
+        </ul>
+
+        <details>
+          <summary>Bonus</summary>
+          <p>Live update: also run <code>calculate()</code> on the form's <code>"input"</code> event, so the result changes while the user types. One listener on the form covers all three fields, because events <em>bubble</em> up from the inputs.</p>
+        </details>
+      </section>
+    </div>
+  </main>
+
+  <script src="../../shared/runner.js"></script>
+</body>
+</html>

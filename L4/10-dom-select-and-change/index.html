@@ -1,0 +1,90 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>4.1 Select &amp; Change · JS from Zero</title>
+  <link rel="stylesheet" href="../../shared/task.css">
+  <style>
+    /* Styles for the demo card only. The .highlight class does nothing
+       until your JavaScript adds it. */
+    .profile {
+      max-width: 380px; padding: 20px 22px; border: 2px solid var(--line); border-radius: 14px;
+      background: var(--bg); transition: box-shadow 0.3s, border-color 0.3s, transform 0.3s;
+    }
+    .profile h3 { margin: 0; font-size: 24px; }
+    .profile .subtitle { margin: 2px 0 14px; color: var(--muted); }
+    .profile.highlight {
+      border-color: var(--level); transform: translateY(-2px);
+      box-shadow: 0 10px 30px -10px color-mix(in srgb, var(--level) 60%, transparent);
+    }
+    #skills { display: flex; flex-wrap: wrap; gap: 6px; padding: 0; margin: 0 0 14px; list-style: none; min-height: 30px; }
+    #skills li { background: var(--js); color: #1c1b19; font-weight: 700; font-size: 13px; padding: 3px 10px; border-radius: 99px; }
+    #skills:empty::before { content: "(no skills yet)"; color: var(--muted); font-size: 14px; }
+    .note { margin: 4px 0; font-size: 14px; }
+  </style>
+</head>
+<body data-level="4" data-task="10-dom-select-and-change">
+  <header class="task-head">
+    <a class="back" href="../../index.html">← All tasks</a>
+    <p class="eyebrow">Level 4 · The page · Task 1</p>
+    <h1>The DOM: select &amp; change</h1>
+  </header>
+
+  <main class="task">
+    <div class="left">
+      <section class="stage" aria-label="Your page">
+        <p class="stage-label">Your page: JavaScript will change this card</p>
+        <div class="profile" id="card">
+          <h3 id="title">Title goes here</h3>
+          <p class="subtitle">Subtitle goes here</p>
+          <ul id="skills"></ul>
+          <p class="note">Practise every day</p>
+          <p class="note">Read the error message</p>
+          <p class="note">Ask for help</p>
+        </div>
+      </section>
+
+      <section class="brief">
+        <h2>Goal</h2>
+        <p>Until now JavaScript only talked to the console. Now it changes the <strong>page</strong>. The browser turns your HTML into a tree of objects called the <strong>DOM</strong>. JavaScript can find any element in that tree and change it.</p>
+
+        <h2>You'll use</h2>
+        <ul class="concepts">
+          <li><code>document.querySelector()</code></li><li><code>querySelectorAll()</code></li>
+          <li><code>.textContent</code></li><li><code>.classList.add()</code></li>
+          <li><code>createElement()</code></li><li><code>.append()</code></li>
+        </ul>
+
+        <pre><code>const heading = document.querySelector("#title");  // same selectors as CSS!
+heading.textContent = "New text";
+heading.classList.add("big");</code></pre>
+
+        <h2>Steps</h2>
+        <ol>
+          <li>Select <code>#title</code> and change its text to your name.</li>
+          <li>Select the <code>.subtitle</code> and set its text to <code>"Learning JavaScript"</code>.</li>
+          <li>Add the class <code>highlight</code> to <code>#card</code>. Watch the card change.</li>
+          <li>For each skill in the <code>skills</code> array, create an <code>&lt;li&gt;</code>, set its text, and add it to <code>#skills</code>.</li>
+          <li>Select <em>all</em> the <code>.note</code> paragraphs and put a number in front of each one: <code>"1. Practise every day"</code>.</li>
+        </ol>
+
+        <div class="tip"><p><strong>Inspect it.</strong> Right-click the card and choose <em>Inspect</em>. The Elements panel shows the DOM <em>after</em> your JavaScript ran, which isn't always the same as your HTML file.</p></div>
+
+        <h2>Think about it</h2>
+        <ul>
+          <li>What does <code>querySelector</code> return when nothing matches? What happens when you then try to set <code>.textContent</code> on it? (Try a typo like <code>"#tittle"</code>.)</li>
+          <li>Why use <code>classList.add</code> instead of <code>element.style.border = …</code>? Where should the styling live?</li>
+        </ul>
+
+        <details>
+          <summary>Bonus</summary>
+          <p>Try <code>innerHTML</code> instead of <code>textContent</code> with <code>"&lt;em&gt;Sara&lt;/em&gt;"</code>. What's the difference? Why is <code>innerHTML</code> dangerous with text that users typed?</p>
+        </details>
+      </section>
+    </div>
+  </main>
+
+  <script src="../../shared/runner.js"></script>
+</body>
+</html>

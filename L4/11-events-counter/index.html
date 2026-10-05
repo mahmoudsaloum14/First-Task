@@ -1,0 +1,90 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>4.2 Click Counter · JS from Zero</title>
+  <link rel="stylesheet" href="../../shared/task.css">
+  <style>
+    .counter { text-align: center; padding: 10px 0 4px; }
+    .count {
+      font-size: clamp(64px, 12vw, 104px); font-weight: 800; line-height: 1; margin: 0 0 18px;
+      font-variant-numeric: tabular-nums; transition: color 0.2s;
+    }
+    .count.high { color: var(--level); }
+    .buttons { display: flex; justify-content: center; gap: 10px; }
+    .buttons button {
+      font: inherit; font-size: 20px; font-weight: 700; min-width: 64px; padding: 10px 18px;
+      border: 2px solid var(--ink); border-radius: 12px; background: var(--surface); color: var(--ink); cursor: pointer;
+    }
+    .buttons button:hover:not(:disabled) { background: var(--ink); color: var(--bg); }
+    .buttons button:disabled { opacity: 0.35; cursor: not-allowed; }
+    #reset { font-size: 15px; }
+    #message { min-height: 1.6em; margin: 14px 0 0; font-weight: 600; color: var(--level); }
+  </style>
+</head>
+<body data-level="4" data-task="11-events-counter" data-checks="manual">
+  <header class="task-head">
+    <a class="back" href="../../index.html">← All tasks</a>
+    <p class="eyebrow">Level 4 · The page · Task 2</p>
+    <h1>Events: a click counter</h1>
+  </header>
+
+  <main class="task">
+    <div class="left">
+      <section class="stage" aria-label="Your page">
+        <p class="stage-label">Your page: click the buttons</p>
+        <div class="counter">
+          <p class="count" id="count" aria-live="polite">0</p>
+          <div class="buttons">
+            <button type="button" id="minus" aria-label="Decrease">−</button>
+            <button type="button" id="reset">Reset</button>
+            <button type="button" id="plus" aria-label="Increase">+</button>
+          </div>
+          <p id="message"></p>
+        </div>
+      </section>
+
+      <section class="brief">
+        <h2>Goal</h2>
+        <p>Make the page react to the user. The buttons do nothing yet. You'll use <strong>events</strong> to run code when they're clicked.</p>
+
+        <h2>You'll use</h2>
+        <ul class="concepts">
+          <li><code>addEventListener("click", fn)</code></li><li>state (<code>let count</code>)</li>
+          <li>a <code>render()</code> function</li><li><code>.disabled</code></li><li><code>classList.toggle()</code></li>
+        </ul>
+
+        <pre><code>button.addEventListener("click", () =&gt; {
+  // this runs every time the button is clicked
+});</code></pre>
+
+        <h2>Steps</h2>
+        <ol>
+          <li>Write <code>render()</code>: it puts the value of <code>count</code> into <code>#count</code>.</li>
+          <li><strong>+</strong> adds 1 to <code>count</code>, then calls <code>render()</code>.</li>
+          <li><strong>−</strong> subtracts 1, but never goes below 0.</li>
+          <li><strong>Reset</strong> sets <code>count</code> back to 0.</li>
+          <li>In <code>render()</code>: disable the <strong>−</strong> button when the count is 0.</li>
+          <li>In <code>render()</code>: when the count is 10 or more, show <code>"That's a lot of clicks!"</code> in <code>#message</code> and add the class <code>high</code> to <code>#count</code>. Below 10, clear both.</li>
+        </ol>
+
+        <div class="tip"><p><strong>The big idea: state → render.</strong> Keep the truth in a variable (<code>count</code>). Every event changes the <em>variable</em> and then calls <code>render()</code>, which makes the page match it. Don't read the number back out of the page. React, Vue and most other frameworks are built on this idea.</p></div>
+
+        <h2>Think about it</h2>
+        <ul>
+          <li>Why write <code>render()</code> once instead of updating the text inside each click handler?</li>
+          <li>Why pass the function itself (<code>render</code>) instead of calling it (<code>render()</code>) when you hand it to <code>addEventListener</code>?</li>
+        </ul>
+
+        <details>
+          <summary>Bonus</summary>
+          <p>Keyboard support: listen for <code>"keydown"</code> on <code>document</code>. <kbd>↑</kbd> adds, <kbd>↓</kbd> subtracts. Check <code>event.key === "ArrowUp"</code>.</p>
+        </details>
+      </section>
+    </div>
+  </main>
+
+  <script src="../../shared/runner.js"></script>
+</body>
+</html>
