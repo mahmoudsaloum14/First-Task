@@ -1,0 +1,63 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>3.1 Arrays · JS from Zero</title>
+  <link rel="stylesheet" href="../../shared/task.css">
+</head>
+<body data-level="3" data-task="07-arrays">
+  <header class="task-head">
+    <a class="back" href="../../index.html">← All tasks</a>
+    <p class="eyebrow">Level 3 · Data · Task 1</p>
+    <h1>Arrays: lists of things</h1>
+  </header>
+
+  <main class="task">
+    <div class="left">
+      <section class="brief">
+        <h2>Goal</h2>
+        <p>Keep many values in one variable, read them by position, add to the list, and loop over it to answer questions like "what's the biggest?"</p>
+
+        <h2>You'll use</h2>
+        <ul class="concepts">
+          <li><code>[a, b, c]</code></li><li><code>list[0]</code></li><li><code>.length</code></li>
+          <li><code>.push()</code></li><li><code>for...of</code></li>
+        </ul>
+
+        <pre><code>const colors = ["red", "green", "blue"];
+//  position:     0        1       2
+colors[0];        // "red"
+colors.length;    // 3
+colors.push("pink");  // now 4 items</code></pre>
+
+        <h2>Steps</h2>
+        <ol>
+          <li><code>firstFruit</code>: the first item of <code>fruits</code>.</li>
+          <li><code>lastFruit</code>: the last item. Use <code>.length</code>, so it works for a list of any size.</li>
+          <li>Add <code>"mango"</code> to the end of <code>fruits</code>.</li>
+          <li><code>largest(numbers)</code>: loop through and return the biggest number. No <code>Math.max</code>!</li>
+          <li><code>contains(list, item)</code>: loop and return <code>true</code> or <code>false</code>.</li>
+          <li><code>reverseCopy(list)</code>: return a <em>new</em> array in reverse order, leaving the original as it was. No <code>.reverse()</code>!</li>
+        </ol>
+
+        <div class="tip"><p><strong>Counting starts at 0.</strong> The first item is <code>[0]</code>, so the last item is <code>[length - 1]</code>. Getting this wrong is so common it has a name: the <em>off-by-one error</em>.</p></div>
+
+        <h2>Think about it</h2>
+        <ul>
+          <li>What does <code>fruits[10]</code> give you? Does it crash?</li>
+          <li><code>fruits</code> is a <code>const</code>, yet <code>push</code> still changes it. How? (The box always holds the same list. The list's contents can change.)</li>
+          <li>In <code>largest</code>, what goes wrong with all-negative numbers if you start with <code>let biggest = 0</code>?</li>
+        </ul>
+
+        <details>
+          <summary>Bonus</summary>
+          <p>Now use the built-in shortcuts: <code>list.includes(item)</code> and <code>Math.max(...numbers)</code>. Writing a loop yourself first is how you learn what these do inside.</p>
+        </details>
+      </section>
+    </div>
+  </main>
+
+  <script src="../../shared/runner.js"></script>
+</body>
+</html>

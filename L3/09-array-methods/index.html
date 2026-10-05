@@ -1,0 +1,63 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>3.3 Array Methods · JS from Zero</title>
+  <link rel="stylesheet" href="../../shared/task.css">
+</head>
+<body data-level="3" data-task="09-array-methods">
+  <header class="task-head">
+    <a class="back" href="../../index.html">← All tasks</a>
+    <p class="eyebrow">Level 3 · Data · Task 3</p>
+    <h1>Array methods: map, filter, reduce</h1>
+  </header>
+
+  <main class="task">
+    <div class="left">
+      <section class="brief">
+        <h2>Goal</h2>
+        <p>Answer questions about a shop's products, usually in one line each. These methods are how real frontend code handles lists: search results, shopping carts, feeds.</p>
+
+        <h2>You'll use</h2>
+        <ul class="concepts">
+          <li><code>.forEach()</code></li><li><code>.map()</code></li><li><code>.filter()</code></li>
+          <li><code>.find()</code></li><li><code>.reduce()</code></li><li>chaining</li>
+        </ul>
+
+        <pre><code>[1, 2, 3].map(n =&gt; n * 10)        // [10, 20, 30]  change every item
+[1, 2, 3].filter(n =&gt; n &gt; 1)      // [2, 3]        keep some items
+[1, 2, 3].find(n =&gt; n &gt; 1)        // 2             the first match
+[1, 2, 3].reduce((sum, n) =&gt; sum + n, 0)   // 6   boil down to one value</code></pre>
+
+        <h2>Steps</h2>
+        <ol>
+          <li>Use <code>forEach</code> to log each product as <code>"Notebook: $4"</code>.</li>
+          <li><code>names</code>: an array of just the product names.</li>
+          <li><code>available</code>: only the products that are in stock.</li>
+          <li><code>cheapNames</code>: names of products under $10. Chain <code>filter</code> then <code>map</code>.</li>
+          <li><code>backpack</code>: the product object whose name is <code>"Backpack"</code>.</li>
+          <li><code>total</code>: the sum of all prices, with <code>reduce</code>.</li>
+          <li><code>stockValue</code>: the sum of prices of in-stock products only.</li>
+        </ol>
+
+        <div class="tip"><p><strong>Which one do I need?</strong> Same number of items, but changed → <code>map</code>. Fewer items → <code>filter</code>. One item → <code>find</code>. One value (a total, a count) → <code>reduce</code>. Just doing something, like logging → <code>forEach</code>.</p></div>
+
+        <h2>Think about it</h2>
+        <ul>
+          <li>Do <code>map</code> and <code>filter</code> change the original <code>products</code> array? Log it at the end and see.</li>
+          <li>What does <code>find</code> return when nothing matches?</li>
+          <li>Could you write <code>total</code> with a <code>for...of</code> loop instead? (Yes. <code>reduce</code> is the same accumulator pattern from task 2.3.)</li>
+        </ul>
+
+        <details>
+          <summary>Bonus</summary>
+          <p><code>sortedNames</code>: product names from cheapest to most expensive. <code>.sort()</code> <em>changes</em> the array it's called on, so copy it first with <code>[...products]</code>.</p>
+        </details>
+      </section>
+    </div>
+  </main>
+
+  <script src="../../shared/runner.js"></script>
+</body>
+</html>

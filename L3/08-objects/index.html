@@ -1,0 +1,62 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>3.2 Objects · JS from Zero</title>
+  <link rel="stylesheet" href="../../shared/task.css">
+</head>
+<body data-level="3" data-task="08-objects">
+  <header class="task-head">
+    <a class="back" href="../../index.html">← All tasks</a>
+    <p class="eyebrow">Level 3 · Data · Task 2</p>
+    <h1>Objects: things with properties</h1>
+  </header>
+
+  <main class="task">
+    <div class="left">
+      <section class="brief">
+        <h2>Goal</h2>
+        <p>An array holds items in order. An <strong>object</strong> holds <em>named</em> values: a student has a name, an age and a list of courses. Almost every piece of data on the web (users, products, posts) is an object.</p>
+
+        <h2>You'll use</h2>
+        <ul class="concepts">
+          <li><code>{ key: value }</code></li><li><code>obj.key</code></li><li><code>obj["key"]</code></li>
+          <li>adding properties</li><li><code>Object.keys()</code></li>
+        </ul>
+
+        <pre><code>const car = { brand: "Toyota", year: 2020 };
+car.brand;       // "Toyota"   (dot notation)
+car["year"];     // 2020       (bracket notation)
+car.color = "white";   // adds a new property</code></pre>
+
+        <h2>Steps</h2>
+        <ol>
+          <li><code>studentName</code>: read the name with dot notation.</li>
+          <li><code>studentAge</code>: read the age with <em>bracket</em> notation and the variable <code>key</code>.</li>
+          <li>Add an <code>email</code> property to <code>student</code>.</li>
+          <li>Add <code>"JavaScript"</code> to the student's <code>courses</code> array.</li>
+          <li><code>describe(person)</code> returns <code>"Sara is 20 and takes 3 courses."</code>. It must work for <em>any</em> person object.</li>
+          <li>Make your own <code>book</code> object with <code>title</code>, <code>author</code>, <code>pages</code> (a number) and <code>isRead</code> (a boolean).</li>
+          <li><code>countKeys(obj)</code> returns how many properties an object has.</li>
+        </ol>
+
+        <div class="tip"><p><strong>Dot or brackets?</strong> Use dot notation when you know the name as you write the code. Use brackets when the name is stored in a variable, like <code>student[key]</code>. <code>student.key</code> looks for a property literally called "key".</p></div>
+
+        <h2>Think about it</h2>
+        <ul>
+          <li>What do you get when you read a property that doesn't exist, like <code>student.phone</code>?</li>
+          <li>Look at <code>student.courses.length</code>: dot, then dot again. What is each step reading?</li>
+        </ul>
+
+        <details>
+          <summary>Bonus</summary>
+          <p>Loop over the student and log every key and value with <code>for (const [key, value] of Object.entries(student))</code>.</p>
+        </details>
+      </section>
+    </div>
+  </main>
+
+  <script src="../../shared/runner.js"></script>
+</body>
+</html>
